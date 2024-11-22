@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design.pro - Дизайн интерьеров</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать в Design.pro</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'protected' %}">Заявки</a></li>
+            <li><a href="">Вход</a></li>
+            <li><a href="">Регистрация</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="about">
+        <h2>О нас</h2>
+        <p>Мы - команда профессионалов, готовых помочь вам создать идеальный интерьер.</p>
+    </section>
+
+    <section id="services">
+        <h2>Наши услуги</h2>
+        <p>Загрузите планы помещений и получите предложения по оформлению.</p>
+        <form id="upload-form">
+            <label for="file-upload">Загрузите план помещения:</label>
+            <input type="file" id="file-upload" name="file-upload" accept=".jpg, .png, .pdf">
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами по телефону или электронной почте.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2023 Design.pro. Все права защищены.</p>
+</footer>
+</body>
+</html>
