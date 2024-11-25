@@ -1,13 +1,11 @@
 from django.urls import path
 from . import views
-from django.urls import re_path
 from .views import MyProtectedView
 
 
 urlpatterns = [
-    re_path(r'^$', views.index, name='index'),
-]
-
-urlpatterns += [
-    path('protected/', MyProtectedView.as_view(), name='protected'),
+    path('', views.index, name='index'),
+    path('account/', views.indexacc, name='profile'),
+    path('account/filter/', views.indexacc_filter, name='profile_filter'),
+    path('signup/', views.signup, name='signup'),
 ]
