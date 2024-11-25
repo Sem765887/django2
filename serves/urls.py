@@ -33,4 +33,9 @@ urlpatterns += [
     path('', RedirectView.as_view(url='/studio/', permanent=True)),
 ]
 
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
