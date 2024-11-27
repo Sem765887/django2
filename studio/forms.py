@@ -59,3 +59,23 @@ class RequestCreateForm(forms.ModelForm):
     class Meta:
         model = Request
         fields = ('name', 'description', 'category', 'image', )
+
+class RequestDoneStatusChangeForm(forms.ModelForm):
+    image_done = forms.ImageField(label='Готовое изображение', required=True)
+
+    class Meta:
+        model = Request
+        fields = ('image_done', )
+
+class RequestWorkStatusChangeForm(forms.ModelForm):
+    comment = forms.CharField(label='Комментарий', widget=forms.TextInput, required=True)
+
+    class Meta:
+        model = Request
+        fields = ('comment', )
+
+class CategoryCreateForm(forms.ModelForm):
+
+    class Meta:
+        model = Category
+        fields = ('name', )
