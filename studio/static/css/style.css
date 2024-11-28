@@ -1,0 +1,46 @@
+body {
+    background-color: #f0f8ff; /* Светлый фон */
+    color: #003366; /* Темно-синий текст */
+    font-family: Arial, sans-serif;
+}
+
+.sidebar-nav {
+    background-color: #005f99; /* Темно-синий цвет для боковой панели */
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.sidebar-nav li {
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+.sidebar-nav a {
+    color: #ffffff; /* Белый цвет для ссылок */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar-nav a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+.col-sm-10 {
+    background-color: #e6f2ff; /* Светло-синий фон для основного контента */
+    border-radius: 5px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar-nav {
+        padding: 10px;
+    }
+
+    .col-sm-2, .col-sm-10 {
+        width: 100%; /* Полная ширина на мобильных устройствах */
+    }
+}
