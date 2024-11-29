@@ -1,7 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-
 class UserProfile(AbstractUser):
     fio = models.CharField(max_length=100, blank=False)
 
@@ -10,7 +9,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Request(models.Model):
     STATUS_CHOICES = [
@@ -30,7 +28,7 @@ class Request(models.Model):
     comment = models.TextField(max_length=254, verbose_name='Комментарий', blank=True)
 
     class Meta:
-        ordering = ('-date', )
+        ordering = ('-date',)
 
     def __str__(self):
         return self.name

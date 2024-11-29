@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import RegexValidator
 from .models import *
+from captcha.fields import CaptchaField
 
 
 class SignUpForm(UserCreationForm):
@@ -17,11 +18,13 @@ class SignUpForm(UserCreationForm):
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput, required=True)
     password2 = forms.CharField(label='Подтверждение пароля', widget=forms.PasswordInput, required=True)
     agree = forms.BooleanField(label='Согласие на обработку персональных данных', widget=forms.CheckboxInput, required=True)
+    captcha = CaptchaField(label='Введите текст с картинки',
+                            error_messages={'required': 'Это поле обязательно для заполнения.'})
+
 
     class Meta:
         model = UserProfile
-        fields = ('fio', 'username', 'email', 'password1', 'password2', 'agree')
-
+        fields = ('fio', 'username', 'email', 'password1', 'password2', 'agree', 'captcha')
 
     def clean_password2(self):
         value = self.cleaned_data
@@ -79,3 +82,4 @@ class CategoryCreateForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ('name', )
+

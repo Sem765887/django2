@@ -26,7 +26,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-     path('studio/', include('studio.urls')),
+    path('studio/', include('studio.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
 
 urlpatterns += [

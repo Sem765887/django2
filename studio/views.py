@@ -3,8 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import *
-
+from .forms import SignUpForm, RequestCreateForm, RequestDoneStatusChangeForm, RequestWorkStatusChangeForm, CategoryCreateForm
 
 def index(request):
     done_requests = Request.objects.filter(status='В')[:4]
@@ -126,3 +125,34 @@ def category_delete(request, pk):
     category = Category.objects.get(id=pk)
     category.delete()
     return redirect('categories')
+
+from captcha.image import ImageCaptcha
+from PIL import Image, ImageDraw, ImageFont
+import random
+from django.http import JsonResponse
+
+class CustomCaptcha(ImageCaptcha):
+    def generate_captcha(self, width, height, length):
+        image = Image.new('RGB', (width, height), color=(255, 255, 255))
+        draw = ImageDraw.Draw(image)
+        captcha_text = ''.join(random.choices('абвгдеёжзийклмнопрстуфхцчшщъыьэюя', k=length))
+        font = ImageFont.truetype('arial.ttf', 36)
+        text_width, text_height = draw.textsize(captcha_text, font=font)
+        x = (width - text_width) // 2
+        y = (height - text_height) // 2
+        draw.text((x, y), captcha_text, font=font, fill=(0, 0, 0))
+        for _ in range(100):
+            x = random.randint(0, width - 1)
+            y = random.randint(0, height - 1)
+            draw.point((x, y), fill=(0, 0, 0))
+        return image, captcha_text
+
+def captcha_view(request):
+    if request.method == 'POST':
+        # Здесь можно добавить логику для проверки CAPTCHA
+        pass
+    else:
+        captcha = CustomCaptcha()
+        image, text = captcha.generate_captcha(200, 100, 4)
+        response = JsonResponse({'captcha': image.tobytes(), 'text': text})
+        return response
