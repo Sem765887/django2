@@ -1,3 +1,9 @@
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
 body {
     background-color: #f0f8ff; /* Светлый фон */
     color: #003366; /* Темно-синий текст */
@@ -44,3 +50,36 @@ body {
         width: 100%; /* Полная ширина на мобильных устройствах */
     }
 }
+
+#slider_wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slide {
+    background-color: aqua;
+    width: 250px;
+    width: 80%;
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+  }
+
+
+.myslide img {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.slider_wrapper a {
+    cursor: pointer;
+}
+
+
+
+

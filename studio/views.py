@@ -6,7 +6,7 @@ from .models import *
 from .forms import SignUpForm, RequestCreateForm, RequestDoneStatusChangeForm, RequestWorkStatusChangeForm, CategoryCreateForm
 
 def index(request):
-    done_requests = Request.objects.filter(status='В')[:4]
+    done_requests = Request.objects.filter(status='В')[:3]
     accepted_request_counter = Request.objects.filter(status='П').count()
     return render(request, 'index.html', {
         'done_requests': done_requests, 'accepted_request_counter': accepted_request_counter}
