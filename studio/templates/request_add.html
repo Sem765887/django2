@@ -6,7 +6,6 @@
     <h2>Создание заявки</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
         {% if user.request_set.count >= 3 %}
             <div class="alert alert-warning" role="alert">
                 Достигнуто максимальное количество заявок = 3
