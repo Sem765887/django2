@@ -7,6 +7,12 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        {% if user.request_set.count >= 3 %}
+            <div class="alert alert-warning" role="alert">
+                Достигнуто максимальное количество заявок = 3
+            </div>
+            {% else %}
         <button type="submit" class="btn btn-primary">Создать</button>
+        {% endif %}
     </form>
 {% endblock %}

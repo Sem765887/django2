@@ -4,7 +4,6 @@ from django.core.validators import RegexValidator
 from .models import *
 from captcha.fields import CaptchaField
 
-
 class SignUpForm(UserCreationForm):
     fio = forms.CharField(widget=forms.TextInput, label='ФИО', help_text='Только буквы кириллицы, дефис и пробелы',
                           validators=[RegexValidator('^[а-яА-ЯёЁ-]+\s+[а-яА-ЯёЁ-]+\s+[а-яА-ЯёЁ-]', message="Неправильное ФИО, пожалуйста, попробуйте снова.")],
@@ -61,7 +60,7 @@ class RequestCreateForm(forms.ModelForm):
 
     class Meta:
         model = Request
-        fields = ('name', 'description', 'category', 'image', )
+        fields = ['name', 'description', 'category', 'image', ]
 
 class RequestDoneStatusChangeForm(forms.ModelForm):
     image_done = forms.ImageField(label='Готовое изображение', required=True)

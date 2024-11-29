@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.core.exceptions import ValidationError
 
 class UserProfile(AbstractUser):
     fio = models.CharField(max_length=100, blank=False)
@@ -26,6 +27,8 @@ class Request(models.Model):
     user = models.ForeignKey('UserProfile', verbose_name='Пользователь', on_delete=models.CASCADE)
     image_done = models.ImageField(upload_to='image_done/', verbose_name='Готовое изображение', blank=True)
     comment = models.TextField(max_length=254, verbose_name='Комментарий', blank=True)
+
+
 
     class Meta:
         ordering = ('-date',)

@@ -146,13 +146,3 @@ class CustomCaptcha(ImageCaptcha):
             y = random.randint(0, height - 1)
             draw.point((x, y), fill=(0, 0, 0))
         return image, captcha_text
-
-def captcha_view(request):
-    if request.method == 'POST':
-        # Здесь можно добавить логику для проверки CAPTCHA
-        pass
-    else:
-        captcha = CustomCaptcha()
-        image, text = captcha.generate_captcha(200, 100, 4)
-        response = JsonResponse({'captcha': image.tobytes(), 'text': text})
-        return response

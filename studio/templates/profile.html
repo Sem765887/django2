@@ -25,20 +25,20 @@
         <br>
         <br>
         <ul>
-            {% for user_req in user_requests %}
-              <li>Временная метка: {{ user_req.date }};</li>
-              <li>Название заявки: {{ user_req.name }};</li>
-              <li>Описание заявки: {{ user_req.description }};</li>
-              <li>Категория заявки: {{ user_req.category }};</li>
-              <li>Статус заявки: {{ user_req.get_status_display }};</li>
-            {% if user_req.status == 'Н' %}
+                {% for user_req in user_requests %}
+                <li>Временная метка: {{ user_req.date }};</li>
+                <li>Название заявки: {{ user_req.name }};</li>
+                <li>Описание заявки: {{ user_req.description }};</li>
+                <li>Категория заявки: {{ user_req.category }};</li>
+                <li>Статус заявки: {{ user_req.get_status_display }};</li>
+                {% if user_req.status == 'Н' %}
                 <a href="{% url 'request_delete' pk=user_req.id %}" class="btn btn-primary">Удалить</a>
-            {% else %}
+                {% else %}
                 <span>Эта заявка не может быть удалена, так как она находится в работе или уже выполнена!</span>
-            {% endif %}
-            <br>
-            <br>
-            {% endfor %}
+                {% endif %}
+                <br>
+                <br>
+                {% endfor %}
         </ul>
     {% else %}
         <p>В данный момент у вас нет заявок</p>
