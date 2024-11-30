@@ -4,6 +4,6 @@ var slideInterval = setInterval(nextSlide,2000);
 
 function nextSlide() {
   slides[currentSlide].className = 'slide';
-  currentSlide = (currentSlide+1)%slides.length;
+  currentSlide = (currentSlide+1)%3;
   slides[currentSlide].className = 'slide active';
 }
