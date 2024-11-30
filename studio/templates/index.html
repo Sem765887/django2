@@ -22,35 +22,9 @@
             <li>Название: {{ done_app.name }};</li>
             <li>Категория заявки: {{ done_app.category }};</li>
             <li>Фотография: <img src="{{ done_app.image.url }}" alt="Фото или план помещения" style="width: 200px;"></li>
-            <p>ЧТОБЫ ЗАМЕТИЛИ ЭТО СЛАЙД 1</p>
-            {% endfor %}
         </div>
         <div class="slide">
-        {% for done_app in done_requests %}
-            <li>Временная метка: {{ done_app.date }};</li>
-            <li>Название: {{ done_app.name }};</li>
-            <li>Категория заявки: {{ done_app.category }};</li>
-            <li>Фотография: <img src="{{ done_app.image.url }}" alt="Фото или план помещения" style="width: 200px;"></li>
-            <p>ЧТОБЫ ЗАМЕТИЛИ ЭТО СЛАЙД 2</p>
-            {% endfor %}
-        </div>
-        <div class="slide">
-        {% for done_app in done_requests %}
-            <li>Временная метка: {{ done_app.date }};</li>
-            <li>Название: {{ done_app.name }};</li>
-            <li>Категория заявки: {{ done_app.category }};</li>
-            <li>Фотография: <img src="{{ done_app.image.url }}" alt="Фото или план помещения" style="width: 200px;"></li>
-            <p>ЧТОБЫ ЗАМЕТИЛИ ЭТО СЛАЙД 3</p>
-            {% endfor %}
-        </div>
-        <div class="slide">
-        {% for done_app in done_requests %}
-            <li>Временная метка: {{ done_app.date }};</li>
-            <li>Название: {{ done_app.name }};</li>
-            <li>Категория заявки: {{ done_app.category }};</li>
-            <li>Фотография: <img src="{{ done_app.image.url }}" alt="Фото или план помещения" style="width: 200px;"></li>
-            <p>ЧТОБЫ ЗАМЕТИЛИ ЭТО СЛАЙД 4</p>
-            {% endfor %}
+        {% endfor %}
         </div>
 
     </div>

@@ -21,7 +21,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'studio.apps.StudioConfig',
     'bootstrap4',
-    'django_recaptcha',
     'captcha',
 ]
 
